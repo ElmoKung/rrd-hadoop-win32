@@ -2,6 +2,9 @@ package com.rrd.hadoop.win32;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Enumeration;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.SystemUtils;
@@ -42,9 +45,21 @@ public class HadoopWindowsInitializer {
 		}catch(Exception e){
 			throw new RuntimeException(
 					String.format("Could not create temporary directory for hadoop home:%s",e.getMessage()),e);
-		}		
+		}			
 		/* copy binaries to home directory */
-		for(String file:new String[]{"hadoop.dll","winutils.exe"}){
+		for(String file:new String[]{
+				"hadoop.dll",
+				"winutils.exe",
+				"msvcp100.dll",
+				"msvcp100d.dll",
+				"msvcp50.dll",
+				"msvcp60.dll",
+				"msvcr100.dll",
+				"msvcr100d.dll",
+				"msvcr100_clr0400.dll",
+				"msvcrt.dll",
+				"msvcrt20.dll",
+				"msvcrt40.dll"}){
 			try{
 				FileOutputStream out = new FileOutputStream(new File(bin,file));
 				IOUtils.copy(HadoopWindowsInitializer.class.getClassLoader().getResourceAsStream(
