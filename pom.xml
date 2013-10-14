@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.rrd.hadoop.win32</groupId>
 	<artifactId>rrd-hadoop-win32</artifactId>
-	<version>3.0.1-SNAPSHOT</version>
+	<version>3.0.1</version>
 	<properties>
 		<hadoop.version>3.0.0-1516213</hadoop.version>
 	</properties>
